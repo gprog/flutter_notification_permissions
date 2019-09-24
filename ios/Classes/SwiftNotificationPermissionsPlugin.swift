@@ -49,7 +49,9 @@ public class SwiftNotificationPermissionsPlugin: NSObject, FlutterPlugin {
                           }
 
                           let settings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
-                          UIApplication.shared.registerUserNotificationSettings(settings)
+						 DispatchQueue.main.async {
+						                             UIApplication.shared.registerUserNotificationSettings(settings);
+						                         }
 
                           result(nil)
                       }
